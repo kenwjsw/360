@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery.fullPage.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/360.css">
+	<title>Document</title>
+	<script type="text/javascript">
+		$(function(){
+			$('#container').fullpage({
+				afterLoad:function(a,i){
+					// console.log(a+"|"+i);
+
+					// 先清理 所有的 current
+					$(".section").removeClass("current");
+
+					// 界面 加载完
+					// 为了 解决 页面刷新 没有动画的情况
+					// 延迟 调用 该方法
+					setTimeout(function () {
+						$(".section").eq(i-1).addClass("current");
+					},200)
+					
+				},
+				onLeave:function(i,n,d){
+					console.log(i+"|"+n+"|"+d);
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="container">
+	<!-- 第一页 -->
+		<div class="section firstSection">
+			<div class="logo"></div>
+			<div class="texts">
+				<img src="images/text_1.png" alt="">
+				<img src="images/text_2.png" alt="">
+				<img src="images/text_3.png" alt="">
+				<img src="images/text_4.png" alt="">
+				<img src="images/text_5.png" alt="">
+				<img src="images/text_6.png" alt="">
+				<img src="images/text_7.png" alt="">
+				<img src="images/text_8.png" alt="">
+			</div>
+			<div class="info"></div>
+		</div>
+		<!-- 第二页  -->
+		<div class="section secondSection">
+			<div class="shield">
+				<img src="images/shield_1.png" alt="">
+				<img src="images/shield_2.png" alt="">
+				<img src="images/shield_3.png" alt="">
+				<img src="images/shield_4.png" alt="">
+				<img src="images/shield_5.png" alt="">
+				<img src="images/shield_6.png" alt="">
+				<img src="images/shield_7.png" alt="">
+				<img src="images/shield_8.png" alt="">
+				<img src="images/shield_9.png" alt="">
+			</div>
+			<div class="info"></div>
+		</div>
+		<!-- 火箭 -->
+		<div class="section thirdSection">
+			<div class="info"></div>
+			<div class="circle"></div>
+			<div class="rocket"></div>
+		</div>
+
+		<!-- 区域4 -->
+		<div class="section fourthSection">
+			<div class="toolBar">
+				<div class="key"></div>
+				<div class="result"></div>
+			</div>
+			<div class="info"></div>
+		</div>
+
+		<!-- 区域5 -->
+		<div class="section fifthSection">
+			<div class="info"></div>
+			<div class="browser">
+			<!-- 顶部的 工具栏 -->
+				<div class="toolBar"></div>
+			<!-- 工具栏的 边栏 -->
+			<div class="toolBarBox"></div>
+			<!-- 四周的边框 -->
+				<div class="lines left"></div>
+				<div class="lines right"></div>
+				<div class="lines top"></div>
+				<div class="lines bottom"></div>
+				<!-- 底部的工具条 -->
+				<div class="bottomBar"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
